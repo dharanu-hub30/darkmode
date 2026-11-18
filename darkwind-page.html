@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#f4f1ea" id="dkw-meta-theme" />
+  <title>WindWave Dark Mode | Wind Energy for Smart Cities</title>
+  <meta name="description" content="A dark mode toggle built with JavaScript, matchMedia and localStorage, themed on wind energy for smart cities." />
+
+  <!-- Runs before first paint so the saved theme never flashes -->
+  <script>
+    (function () {
+      try {
+        var s = localStorage.getItem("windwave-theme");
+        var d = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        var t = (s === "light" || s === "dark") ? s : (d ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) { /* keep the default theme */ }
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="darkwind-style.css" />
+</head>
+<body>
+  <header class="dkw-bar">
+    <a class="dkw-logo" href="#top" aria-label="WindWave home"><span>WW</span> WindWave</a>
+    <nav class="dkw-nav" aria-label="Sections">
+      <a href="#theory">VI. Theory</a>
+      <a href="#setup">VII. Theme lab</a>
+    </nav>
+    <button type="button" class="dkw-toggle" id="dkw-toggle" aria-label="Switch to dark theme" aria-pressed="false" title="Toggle dark mode">
+      <svg class="dkw-ic dkw-ic-sun" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="4.5" />
+        <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1" />
+      </svg>
+      <svg class="dkw-ic dkw-ic-moon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z" />
+      </svg>
+    </button>
+  </header>
+
+  <div class="dkw-ticker" aria-hidden="true">
+    <div class="dkw-ticker-track">
+      <span>WIND POWER, DAY AND NIGHT</span><span>&#9679;</span><span>SMART CITIES RUN ON AIR</span><span>&#9679;</span><span>LIGHT MODE</span><span>&#9679;</span><span>DARK MODE</span><span>&#9679;</span>
+      <span>WIND POWER, DAY AND NIGHT</span><span>&#9679;</span><span>SMART CITIES RUN ON AIR</span><span>&#9679;</span><span>LIGHT MODE</span><span>&#9679;</span><span>DARK MODE</span><span>&#9679;</span>
+    </div>
+  </div>
+
+  <section class="dkw-hero" id="top">
+    <div class="dkw-hero-copy">
+      <p class="dkw-mono">Practicum / Dark mode toggle</p>
+      <h1>WIND<br /><span>WAVE</span></h1>
+      <p class="dkw-lead">Harnessing wind energy for smart cities. The turbines never stop, so the interface learns to switch between day and night.</p>
+      <button type="button" class="dkw-cta" id="dkw-cta">Try the switch &rarr;</button>
+    </div>
+
+    <div class="dkw-scene" aria-hidden="true">
+      <svg viewBox="0 0 400 360" preserveAspectRatio="xMidYMid slice">
+        <rect class="dkw-sky" x="0" y="0" width="400" height="360" />
+        <g class="dkw-stars">
+          <circle cx="50" cy="50" r="2" /><circle cx="120" cy="90" r="1.6" /><circle cx="210" cy="40" r="2.2" />
+          <circle cx="170" cy="130" r="1.4" /><circle cx="340" cy="170" r="1.8" /><circle cx="30" cy="150" r="1.5" /><circle cx="260" cy="120" r="1.4" />
+        </g>
+        <circle class="dkw-sun" cx="300" cy="86" r="38" />
+        <g class="dkw-moon">
+          <circle cx="300" cy="86" r="34" class="dkw-moon-disc" />
+          <circle cx="314" cy="76" r="30" class="dkw-moon-cut" />
+        </g>
+        <path class="dkw-hill" d="M0 270 Q110 220 220 262 T400 250 V360 H0 Z" />
+        <g transform="translate(40 60) scale(1.5)">
+          <path class="dkw-tower" d="M48 66 L52 66 L56 160 L44 160 Z" />
+          <g class="dkw-blades"><path d="M50 60 L46.5 8 Q50 2 53.5 8 Z" /><path d="M50 60 L46.5 8 Q50 2 53.5 8 Z" transform="rotate(120 50 60)" /><path d="M50 60 L46.5 8 Q50 2 53.5 8 Z" transform="rotate(240 50 60)" /></g>
+          <circle class="dkw-hub" cx="50" cy="60" r="4.5" />
+        </g>
+        <g transform="translate(205 128) scale(.8)">
+          <path class="dkw-tower" d="M48 66 L52 66 L56 160 L44 160 Z" />
+          <g class="dkw-blades dkw-blades-b"><path d="M50 60 L46.5 8 Q50 2 53.5 8 Z" /><path d="M50 60 L46.5 8 Q50 2 53.5 8 Z" transform="rotate(120 50 60)" /><path d="M50 60 L46.5 8 Q50 2 53.5 8 Z" transform="rotate(240 50 60)" /></g>
+          <circle class="dkw-hub" cx="50" cy="60" r="4.5" />
+        </g>
+        <path class="dkw-wave" d="M0 318 Q50 298 100 318 T200 318 T300 318 T400 318 V360 H0 Z" />
+      </svg>
+    </div>
+  </section>
+
+  <main>
+    <section id="theory" class="dkw-box">
+      <h2><span class="dkw-mono">VI.</span> Minimum Underpinning Theory</h2>
+      <p>
+        The minimum underpinning theory behind implementing dark mode in a web application using
+        JavaScript is rooted in concepts of event-driven programming, DOM manipulation, and local data
+        persistence. JavaScript enables dynamic changes to the Document Object Model (DOM), allowing
+        developers to toggle CSS classes or modify inline styles in response to user interactions, such
+        as clicking a switch to activate dark mode.
+      </p>
+      <p>
+        Additionally, understanding browser APIs like <code>window.matchMedia</code> allows detection of
+        user system preferences (e.g., <code>prefers-color-scheme</code>), while <code>localStorage</code>
+        ensures the selected theme persists across sessions. These foundational principles allow for the
+        seamless application of user interface changes, making dark mode both functional and user-centric
+        in modern web development.
+      </p>
+      <ul class="dkw-tags">
+        <li>Event-driven programming</li>
+        <li>DOM manipulation</li>
+        <li>classList / inline styles</li>
+        <li>window.matchMedia</li>
+        <li>prefers-color-scheme</li>
+        <li>localStorage</li>
+      </ul>
+    </section>
+
+    <section id="setup" class="dkw-box">
+      <h2><span class="dkw-mono">VII.</span> Practicum Set-up: Theme Lab</h2>
+      <p class="dkw-sub">Change the theme here, then reload the page. The choice is remembered. Pick "System" to follow your device, and it updates live when your device changes.</p>
+
+      <div class="dkw-lab">
+        <div class="dkw-controls">
+          <h3>1. Choose a theme</h3>
+          <div class="dkw-seg" role="radiogroup" aria-label="Theme">
+            <button type="button" role="radio" aria-checked="false" data-choice="light">Light</button>
+            <button type="button" role="radio" aria-checked="false" data-choice="dark">Dark</button>
+            <button type="button" role="radio" aria-checked="false" data-choice="system">System</button>
+          </div>
+
+          <h3>2. Inspector</h3>
+          <dl class="dkw-inspect">
+            <div><dt>System prefers</dt><dd id="dkw-i-system">-</dd></div>
+            <div><dt>Saved choice</dt><dd id="dkw-i-saved">-</dd></div>
+            <div><dt>Applied theme</dt><dd id="dkw-i-applied">-</dd></div>
+            <div><dt>Storage</dt><dd id="dkw-i-storage">-</dd></div>
+          </dl>
+
+          <h3>3. Class vs inline style</h3>
+          <div id="dkw-box" class="dkw-demo-box">One element, two ways to change it</div>
+          <div class="dkw-btn-row">
+            <button type="button" class="dkw-btn" id="dkw-b-class">classList.toggle</button>
+            <button type="button" class="dkw-btn" id="dkw-b-inline">style.background</button>
+            <button type="button" class="dkw-btn dkw-btn-ghost" id="dkw-b-reset">Reset</button>
+          </div>
+          <p class="dkw-note" id="dkw-note" role="status" aria-live="polite">Press a button to see the DOM call.</p>
+        </div>
+
+        <div class="dkw-preview" aria-label="Live preview of the theme">
+          <div class="dkw-chrome"><i></i><i></i><i></i><span>windwave.city</span></div>
+          <div class="dkw-page">
+            <div class="dkw-page-nav"><b>WindWave</b><span>Grid</span><span>Sites</span><span>Data</span><em>Sign in</em></div>
+            <h3>Power your city with wind that works</h3>
+            <p>Clean energy for streets, homes and transit, measured in real time.</p>
+            <div class="dkw-page-btns"><span class="dkw-pill-a">Start a site</span><span class="dkw-pill-b">See the map</span></div>
+            <h4>Results</h4>
+            <div class="dkw-stats">
+              <div><strong>42 MW</strong><span>Installed</span></div>
+              <div><strong>18k</strong><span>Homes powered</span></div>
+              <div><strong>-31%</strong><span>City CO&#8322;</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dkw-code">
+        <div class="dkw-code-head">How it works</div>
+<pre><code>var mq = window.matchMedia("(prefers-color-scheme: dark)");   // read the system setting
+var saved = localStorage.getItem("windwave-theme");           // read the saved choice
+var theme = saved === "light" || saved === "dark"
+  ? saved : (mq.matches ? "dark" : "light");
+document.documentElement.setAttribute("data-theme", theme);   // CSS reacts to this
+button.addEventListener("click", function () {                // user switch
+  localStorage.setItem("windwave-theme", next);
+});
+mq.addEventListener("change", applyIfSystem);                 // device changes live</code></pre>
+      </div>
+
+      <div class="dkw-log-wrap">
+        <h3>Event log</h3>
+        <ul id="dkw-log" aria-live="polite"><li>Waiting for events...</li></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="dkw-footer">WindWave // Wind energy for smart cities // Built with HTML, CSS and JavaScript</footer>
+
+  <script src="darkwind-script.js"></script>
+</body>
+</html>
